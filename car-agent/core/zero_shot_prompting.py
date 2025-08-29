@@ -1,14 +1,20 @@
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer
 
 def zero_shot_prompt(task_description, input_text, top_k=50):
     """
-    Demonstrates zero-shot prompting with Top K sampling.
+    Demonstrates zero-shot prompting with Top K sampling and logs token count.
     """
-    # Load a pre-trained text generation model
+    # Load a pre-trained text generation model and tokenizer
     model = pipeline("text2text-generation", model="t5-small")
+    tokenizer = AutoTokenizer.from_pretrained("t5-small")
 
     # Create the zero-shot prompt
     prompt = f"Task: {task_description}\nInput: {input_text}\nOutput:"
+
+    # Tokenize the prompt and log the token count
+    tokens = tokenizer(prompt, return_tensors="pt")
+    token_count = len(tokens["input_ids"][0])
+    print(f"Number of tokens used: {token_count}")
 
     # Generate the model's response with Top K sampling
     response = model(prompt, top_k=top_k)[0]["generated_text"]
@@ -21,5 +27,5 @@ if __name__ == "__main__":
 
     # Perform zero-shot prompting with Top K
     output = zero_shot_prompt(task_description, input_text, top_k=40)
-    print("Zero-Shot Prompting Output with Top K:")
+    print("Zero-Shot Prompting Output with Token Count:")
     print(output)
