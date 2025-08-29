@@ -1,8 +1,8 @@
 from transformers import pipeline, AutoTokenizer
 
-def zero_shot_prompt(task_description, input_text, top_k=50):
+def zero_shot_prompt(task_description, input_text, temperature=1.0):
     """
-    Demonstrates zero-shot prompting with Top K sampling and logs token count.
+    Demonstrates zero-shot prompting with temperature control.
     """
     # Load a pre-trained text generation model and tokenizer
     model = pipeline("text2text-generation", model="t5-small")
@@ -16,8 +16,8 @@ def zero_shot_prompt(task_description, input_text, top_k=50):
     token_count = len(tokens["input_ids"][0])
     print(f"Number of tokens used: {token_count}")
 
-    # Generate the model's response with Top K sampling
-    response = model(prompt, top_k=top_k)[0]["generated_text"]
+    # Generate the model's response with temperature control
+    response = model(prompt, temperature=temperature)[0]["generated_text"]
     return response
 
 if __name__ == "__main__":
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     task_description = "Summarize the following text."
     input_text = "The Car AI Agent optimizes trips, generates maintenance plans, and analyzes fuel consumption."
 
-    # Perform zero-shot prompting with Top K
-    output = zero_shot_prompt(task_description, input_text, top_k=40)
-    print("Zero-Shot Prompting Output with Token Count:")
+    # Perform zero-shot prompting with temperature control
+    output = zero_shot_prompt(task_description, input_text, temperature=0.7)
+    print("Zero-Shot Prompting Output with Temperature:")
     print(output)
