@@ -1,0 +1,12 @@
+{
+  "car_model": "Toyota Fortuner 2022",
+  "fuel_type": "Diesel",
+  "topics": ["maintenance", "fuel", "driving"],
+  "tone": "practical, concise, safe",
+  "windows": [
+    {"day": "Sat", "hour": 7},
+    {"day": "Sun", "hour": 8}
+  ],
+  "experiment_spread_hours": 2,
+  "manual_mode": true
+}
