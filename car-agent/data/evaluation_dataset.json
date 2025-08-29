@@ -1,0 +1,27 @@
+[
+    {
+        "input": "Optimize the trip for fuel efficiency.",
+        "expected_output": "Plan includes optimal routes and refueling stops.",
+        "metadata": {"task": "trip optimization"}
+    },
+    {
+        "input": "Generate a maintenance plan for 25,000 miles.",
+        "expected_output": "Plan includes oil change and tire rotation.",
+        "metadata": {"task": "maintenance planning"}
+    },
+    {
+        "input": "Analyze fuel consumption trends.",
+        "expected_output": "Report includes average fuel efficiency and cost trends.",
+        "metadata": {"task": "fuel analysis"}
+    },
+    {
+        "input": "Schedule a trip for Saturday at 7 AM.",
+        "expected_output": "Trip scheduled successfully for the requested time.",
+        "metadata": {"task": "trip scheduling"}
+    },
+    {
+        "input": "Provide safe driving tips based on past trips.",
+        "expected_output": "Tips include avoiding harsh braking and maintaining steady speeds.",
+        "metadata": {"task": "driving tips"}
+    }
+]
